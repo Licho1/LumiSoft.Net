@@ -1242,10 +1242,10 @@ namespace LumiSoft.Net.IMAP.Server
             if(e.IsAuthenticated){
                 m_pUser = new GenericIdentity(user_pass[0],"IMAP-LOGIN");
 
-                m_pResponseSender.SendResponseAsync(new IMAP_r_ServerStatus(cmdTag,"OK","LOGIN completed."));
+                m_pResponseSender.SendResponseAsync(new IMAP_r_ServerStatus(cmdTag,"OK", e.LoginMessage ?? "LOGIN completed."));
             }
             else{
-                m_pResponseSender.SendResponseAsync(new IMAP_r_ServerStatus(cmdTag,"NO","LOGIN failed."));
+                m_pResponseSender.SendResponseAsync(new IMAP_r_ServerStatus(cmdTag,"NO", e.LoginMessage ?? "LOGIN failed."));
             }
         }
 

@@ -12,6 +12,7 @@ namespace LumiSoft.Net.IMAP.Server
         private bool   m_IsAuthenticated = false;
         private string m_User            = "";
         private string m_Password        = "";
+        private string m_LoginMessage = null;
 
         /// <summary>
         /// Default constructor.
@@ -59,6 +60,14 @@ namespace LumiSoft.Net.IMAP.Server
         public string Password
         {
             get{ return m_Password; }
+        }
+
+        /// <summary>
+        /// Override of response text sent to client
+        /// </summary>
+        public string LoginMessage {
+            get { return m_LoginMessage; }
+            set { m_LoginMessage = value; }
         }
 
         #endregion
